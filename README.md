@@ -1,24 +1,31 @@
-# README
+# 茨城農園
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+茨城県にある架空の農園のHPです。  
+作っている野菜の紹介ページや  
+農業の体験の申し込みができるように予約機能を実装予定です。
 
-Things you may want to cover:
+### サイトテーマ
+農場のPRができるサイト
 
-* Ruby version
+### テーマを選んだ理由
+今回、サイトを作成させて頂く架空の農場では人手が足りず、普段の農場作業で精一杯という状況です。  
+そういう生産者のための手助けができればと思い、このテーマを選びました。
+（今回は農家を選定しましたが、事業内容は全て対象です）
 
-* System dependencies
+### ターゲットユーザ
+自分のHPを持っていない事業者
 
-* Configuration
+### 主な利用シーン
+自分の事業をPRする時に使ってもらえればと思います。
 
-* Database creation
+## 設計書
 
-* Database initialization
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1bk8I3k8r4t7j-gztCUaxmZV478Fblhk5s1EKMVHMTvs/edit?usp=sharing
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- 言語：HTML,CSS,JavaScript,Ruby
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- 仮想環境：Vagrant,VirtualBox
