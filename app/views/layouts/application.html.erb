@@ -9,7 +9,26 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+   <div class="wrapper">
+      <header class="navbar navbar-inverse row">
+        <div class="col-md-offset-1 col-md-3">
+          <%= link_to root_path do %>
+          <%= image_tag('logo.jpg') %>
+          <% end %>
+        </div>
+        <ul class="nav navbar-nav col-md-6">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete, class:"glyphicon glyphicon-log-out" %></li>
+        </ul>
+        <% if customer_signed_in? %>
+          <p class="login_name col-md-2">ようこそ<%= current_customer.first_name %>さん !</p>
+        <% end %>
+      </header>
+        <%= yield %>
+      <footer>
+      </footer>
+  </div>
   </body>
 </html>
