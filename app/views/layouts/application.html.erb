@@ -17,10 +17,23 @@
           <% end %>
         </div>
         <ul class="nav navbar-nav col-md-6">
+          <% if customer_signed_in? %>
             <li></li>
-            <li></li>
+            <li><%= link_to " 商品一覧", customers_items_path, class:"glyphicon glyphicon-cutlery" %></li>
             <li></li>
             <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete, class:"glyphicon glyphicon-log-out" %></li>
+          <% elsif admin_signed_in? %>
+            <li><%= link_to "商品一覧", admins_items_path %></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to " About", about_path, class:"glyphicon glyphicon-link" %></li>
+            <li><%= link_to " 商品一覧", customers_items_path, class:"glyphicon glyphicon-cutlery" %></li>
+            <li><%= link_to " 新規登録", new_customer_registration_path, class:"glyphicon glyphicon-edit" %></li>
+            <li><%= link_to " ログイン", new_customer_session_path, class:"glyphicon glyphicon-log-in" %></li>
+          <% end %>
         </ul>
         <% if customer_signed_in? %>
           <p class="login_name col-md-2">ようこそ<%= current_customer.first_name %>さん !</p>
