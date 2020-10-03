@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="col-md-11 col-md-offset-1">
+		<h4><mark>商品新規登録</mark></h4>
+	</div>
+
+  <%= form_for(@item, url: admins_items_path) do |f| %>
+    <div class="col-md-12">
+			<div class="col-md-3 col-md-offset-1">
+				<div class="row">
+					<div id="item-image">
+						<%= attachment_image_tag @item, :image_id, format: 'jpeg', size:"300x260", fallback: "no_image.png" %>
+					</div>
+						<%= f.attachment_field :image, class: "col-md-12" %>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="form-group">
+						<label class="col-md-3 control-label">商品名</label>
+						<div class="col-md-6">
+	  					<%= f.text_field :name, class: "form-control"%>
+	  				</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<label class="col-md-3 control-label">商品説明</label>
+						<div class="col-md-6">
+	  					<%= f.text_area :explanation, class: "form-control", rows: "4" %>
+	  				</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<label class="col-md-3 control-label">出荷時期</label>
+						<div class="col-md-6">
+             <%= f.text_area :shipping_time, class: "form-control", rows: "4" %>
+	  				</div>
+					</div>
+				</div>
+
+		<div class="row">
+			<%= f.submit "変更を保存", class: "btn btn-primary col-md-offset-9" %>
+		</div>
+	<% end %>
+</div>
