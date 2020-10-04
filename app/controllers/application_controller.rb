@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     #ログアウト後に遷移するpath
     def after_sign_out_path_for(resource_or_scope)
       return new_admin_session_path if resource_or_scope == :admin
-    admin_root_path
+      admins_root_path
   end
 
   	def configure_permitted_parameters
