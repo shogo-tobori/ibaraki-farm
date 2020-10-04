@@ -36,6 +36,13 @@
             <td>
 						  <%= item.shipping_time %>
 					 </td>
+           <td>
+            <% if item.sale_status == true %>
+              <P> 販売中</P>
+            <% else %>
+              <P> 売り切れ </P>
+            <% end %>
+          </td>
 				  </tr>
 				<% end %>
 			</tbody>

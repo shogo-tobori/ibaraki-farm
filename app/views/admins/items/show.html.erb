@@ -22,6 +22,15 @@
 					<td>出荷時期</td>
 					<td><%= @item.shipping_time %></td>
 				</tr>
+				<tr>
+					<td>販売ステータス</td>
+					<td><% if @item.sale_status == true %>
+						<P> 販売中 </P>
+						<% else %>
+						<P> 売り切れ </P>
+						<% end %>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>

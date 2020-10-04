@@ -38,6 +38,14 @@
 	  				</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="form-group">
+						<label class="col-md-3 control-label">販売ステータス</label>
+						<div class="col-md-3">
+	  					<%= f.select :sale_status, [['販売中', true], ['売り切れ', false]], {prompt: "-- 選択してください --"}, {class: "form-control"} %>
+	  				</div>
+	 				</div>
+				</div>
 
 		<div class="row">
 			<%= f.submit "変更を保存", class: "btn btn-primary col-md-offset-9" %>
