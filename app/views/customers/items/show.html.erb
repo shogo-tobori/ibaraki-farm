@@ -35,4 +35,11 @@
   </tbody>
 </table>
 </div>
+<!-- コメント -->
+<!-- いいね -->
+<% if Like.find_by(customer_id: current_customer.id, item_id: @item.id) %>
+  <%= link_to("いいね!済み", customers_item_like_path(@item.id), {method: "post"}) %>
+<% else %>
+  <%= link_to("いいね！", customers_item_likes_path(@item.id), {method: "post"}) %>
+  <% end %>
 </div>
