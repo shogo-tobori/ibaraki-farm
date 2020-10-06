@@ -1,4 +1,5 @@
 class Customers::ItemsController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     @items = Item.page(params[:page]).reverse_order
@@ -6,6 +7,8 @@ class Customers::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @post_comment = PostComment.new
+    @post_comments = @item.post_comments
   end
 
 end

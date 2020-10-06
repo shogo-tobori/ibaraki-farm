@@ -9,4 +9,30 @@
       <h3><%= @item.shipping_time %></h3>
     </div>
   </div>
+
+  <!-- コメント -->
+<%= form_for [@item, @post_comment], url: customers_item_post_comments_path(@item) do |f| %>
+  <%= f.text_area :comment, size: "40x5" %>
+  <%= f.hidden_field :item_id, value: @item.id %>
+  <%= f.submit '送信', class: "btn-sm btn-primary" %>
+<% end %>
+<div class="col-md-4 col-md-offset-1">
+<table>
+  <thead>
+    <tr>
+      <th>コメント投稿者</th>
+      <th>コメント内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @post_comments.each do |post_comment| %>
+      <tr>
+        <td><%= post_comment.customer.last_name %></td>
+        <td><%= post_comment.comment %></td>
+        <td><%= link_to "削除", customers_item_post_comment_path(@item, post_comment), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
 </div>

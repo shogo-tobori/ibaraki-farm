@@ -12,7 +12,11 @@ Rails.application.routes.draw do
 	end
 
 	namespace :customers do
-		resources :items
+		resources :items do
+    resources :post_comments, only: [:create, :destroy]
+  	end
+  	post 'likes/:item_id/create' => 'likes#create', as: 'item_likes'
+  	post 'likes/:item_id/destroy' => 'likes#destroy', as: 'item_like'
   end
 # 〜〜〜〜〜〜〜〜〜〜〜〜〜
 
