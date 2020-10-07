@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       when Customer
         root_path
       when Admin
-        admins_root_path
+        admins_top_path
       end
     end
     # Sign_Up後に遷移するpath
@@ -17,14 +17,14 @@ class ApplicationController < ActionController::Base
       when Customer
         root_path
       when Admin
-        admins_root_path
+        admins_top_path
       end
     end
 
     #ログアウト後に遷移するpath
     def after_sign_out_path_for(resource_or_scope)
       return new_admin_session_path if resource_or_scope == :admin
-      admins_root_path
+      root_path
   end
 
   	def configure_permitted_parameters
