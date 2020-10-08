@@ -34,7 +34,7 @@
 					<div class="form-group">
 						<label class="col-md-3 control-label">出荷時期</label>
 						<div class="col-md-6">
-             <%= f.text_area :shipping_time, class: "form-control", rows: "4" %>
+             <%= f.text_field :shipping_time, class: "form-control", rows: "4" %>
 	  				</div>
 					</div>
 				</div>
@@ -46,9 +46,16 @@
 	  				</div>
 	 				</div>
 				</div>
-
-		<div class="row">
-			<%= f.submit "変更を保存", class: "btn btn-primary col-md-offset-9" %>
-		</div>
-	<% end %>
+				<div class="row">
+					<div class="form-group">
+						<label class="col-md-3 control-label">ジャンル</label>
+						<div class="col-md-6">
+	  					<%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "-- 選択してください --"}, {class: 'form-control'}) %>
+	  				</div>
+					</div>
+				</div>
+				<div class="row">
+					<%= f.submit "変更を保存", class: "btn btn-primary col-md-offset-9" %>
+				</div>
+			<% end %>
 </div>

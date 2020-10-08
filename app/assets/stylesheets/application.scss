@@ -13,5 +13,65 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  background-image: url(haikei1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.wrapper {
+  width: 100%;
+  position: relative;
+  min-height: 100%;
+}
+#main_wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header {
+  position: relative;
+}
+.login_name {
+  color: white;
+  line-height: 50px;
+  position: absolute;
+  right: 10px;
+}
+main {
+background: rgba(255,255,255,0.8);
+margin-bottom: 20px;
+}
+footer {
+  height: 50px;
+  background-color: black;
+  margin-top: auto;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+}

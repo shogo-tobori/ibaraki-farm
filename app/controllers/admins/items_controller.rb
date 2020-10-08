@@ -3,16 +3,18 @@ class Admins::ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @genres = Genre.all
   end
 
   def create
+    @genres = Genre.all
     @item = Item.new(item_params)
     @item.save
     redirect_to admins_items_path
   end
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).reverse_order
   end
 
   def show
@@ -21,6 +23,7 @@ class Admins::ItemsController < ApplicationController
 
   def edit
   	@item = Item.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
@@ -32,6 +35,6 @@ class Admins::ItemsController < ApplicationController
  private
 
  def item_params
- 	params.require(:item).permit(:name, :explanation, :shipping_time, :image, :sale_status)
+ 	params.require(:item).permit(:genre_id, :name, :explanation, :shipping_time, :image, :sale_status)
  end
 end

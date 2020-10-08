@@ -1,181 +1,31 @@
-<div id="main">
-  <section>
-    <h2>商品のご紹介</h2>
-      <ul class="navmenu">
-        <li><a href="#spring">春の野菜</a></li>
-        <li><a href="#summer">夏の野菜</a></li>
-        <li><a href="#autumn">秋の野菜</a></li>
-        <li><a href="#winter">冬の野菜</a></li>
-      </ul>
-      <h3>茨城農場は新鮮な野菜がたくさんあります！！！</h3>
-        <p><strong class="color1">自然の中にある筍の栽培や独自に生成した肥料を使って野菜を育てております！</strong><br>
-          <a href="">Youtubeやってます！</a>ご視聴して頂くと茨城農場の事がよくわかると思います！<br>
-        </p>
-      <h3 id="spring">春の野菜</h3>
-        <% @items.each do |item| %>
-          <div class="list">
-            <% if item.sale_status == true %>
-              <%= link_to customers_item_path(item) do %>
-                <%= attachment_image_tag item, :image, format: 'jpeg' %>
-              <% end %>
-                <h5><mark>商品名</mark><%= item.name %></h5>
-                <h5><mark>商品説明</mark><%= item.explanation %></h5>
-                <p><%= item.likes.count %></p>
-              <% else item.sale_status == false %>
-              <%= attachment_image_tag item, :image, format: 'jpeg' %>
-                <p><%= item.name %></p>
-                <p style="background-color: red; color: white; width: 30%;">売り切れ</p>
-                <p><%= item.likes.count %></p>
+<div class="row">
+  <div class="col-md-9 col-md-offset-1">
+    <h1>商品ご紹介 <span style="font-size: 20px;">(全<%= @items.count %>件)</span></h1>
+    <div class="row">
+      <% @items.each do |item| %>
+        <div class="col-md-3">
+          <% if item.genre.is_valid == true && item.sale_status == true %>
+            <%= link_to customers_item_path(item) do %>
+              <%= attachment_image_tag item, :image, format: 'jpeg', size:"200x150" %>
+              <p><%= item.name %></p>
             <% end %>
-          </div>
-        <% end %>
-
-
-        <p class="pagetop"><a href="#">↑ PAGE TOP</a></p>
-
-<h3 id="course">コースメニュー（class=&quot;transform1&quot;の例です）</h3>
-
-<div class="list transform1">
-<figure><img src="images/sample_photo2.jpg" alt="コース"></figure>
-<h4>コース　2,000円</h4>
-<p>「おすすめ」マークはhtml内に画像として配置し、class=&quot;icon&quot;と指定すればこの場所に表示されます。他に好きなアイコンを作ってclass指定してもOK。</p>
-<img src="images/icon_osusume.png" alt="おすすめ" class="icon">
+            <p><%= item.explanation %></p>
+          <% elsif item.sale_status == false %>
+            <%= attachment_image_tag item, :image, format: 'jpeg', size:"200x150" %>
+            <p><%= item.name %></p>
+            <p style="background-color: red; color: white; width: 30%;">売り切れ</p>
+          <% elsif item.genre.is_valid == false %>
+                  <%= image_tag 'あつかいない.png', :size => '200x150' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<div class="list transform1">
-<figure><img src="images/sample_photo2.jpg" alt="コース"></figure>
-<h4>コース　2,000円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-<img src="images/icon_ninki.png" alt="人気" class="icon">
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="text-center">
+      <%= paginate @items %>
+    </div>
+  </div>
 </div>
-
-<div class="list transform1">
-<figure><img src="images/sample_photo2.jpg" alt="コース"></figure>
-<h4>コース　2,000円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-</div>
-
-<p class="pagetop"><a href="#">↑ PAGE TOP</a></p>
-
-<h3 id="single">単品メニュー（class=&quot;transform2&quot;の例です）</h3>
-
-<div class="list transform2">
-<figure><img src="images/sample_photo3.jpg" alt="サラダ"></figure>
-<h4>サラダ　400円</h4>
-<p>「おすすめ」マークはhtml内に画像として配置し、class=&quot;icon&quot;と指定すればこの場所に表示されます。他に好きなアイコンを作ってclass指定してもOK。</p>
-<img src="images/icon_osusume.png" alt="おすすめ" class="icon">
-</div>
-
-<div class="list transform2">
-<figure><img src="images/sample_photo3.jpg" alt="サラダ"></figure>
-<h4>サラダ　400円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-<img src="images/icon_ninki.png" alt="人気" class="icon">
-</div>
-
-<div class="list transform2">
-<figure><img src="images/sample_photo3.jpg" alt="サラダ"></figure>
-<h4>サラダ　400円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-</div>
-
-<p class="pagetop"><a href="#">↑ PAGE TOP</a></p>
-
-<h3 id="drink">ドリンクメニュー（class=&quot;up&quot;の例です）</h3>
-
-<div class="list up">
-<figure><img src="images/sample_photo4.jpg" alt="コーヒー"></figure>
-<h4>コーヒー　400円</h4>
-<p>「おすすめ」マークはhtml内に画像として配置し、class=&quot;icon&quot;と指定すればこの場所に表示されます。他に好きなアイコンを作ってclass指定してもOK。</p>
-<img src="images/icon_osusume.png" alt="おすすめ" class="icon">
-</div>
-
-<div class="list up">
-<figure><img src="images/sample_photo4.jpg" alt="コーヒー"></figure>
-<h4>コーヒー　400円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-<img src="images/icon_ninki.png" alt="人気" class="icon">
-</div>
-
-<div class="list up">
-<figure><img src="images/sample_photo4.jpg" alt="コーヒー"></figure>
-<h4>コーヒー　400円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-</div>
-
-<p class="pagetop"><a href="#">↑ PAGE TOP</a></p>
-
-<h3 id="desert">デザートメニュー（class=&quot;left&quot;の例です）</h3>
-
-<div class="list left">
-<figure><img src="images/sample_photo5.jpg" alt="デザート"></figure>
-<h4>デザート　400円</h4>
-<p>「おすすめ」マークはhtml内に画像として配置し、class=&quot;icon&quot;と指定すればこの場所に表示されます。他に好きなアイコンを作ってclass指定してもOK。</p>
-<img src="images/icon_osusume.png" alt="おすすめ" class="icon">
-</div>
-
-<div class="list left">
-<figure><img src="images/sample_photo5.jpg" alt="デザート"></figure>
-<h4>デザート　400円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-<img src="images/icon_ninki.png" alt="人気" class="icon">
-</div>
-
-<div class="list left">
-<figure><img src="images/sample_photo5.jpg" alt="デザート"></figure>
-<h4>デザート　400円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-</div>
-
-<p class="pagetop"><a href="#">↑ PAGE TOP</a></p>
-
-<h3 id="desert">デザートメニュー（class=&quot;right&quot;の例です）</h3>
-
-<div class="list right">
-<figure><img src="images/sample_photo5.jpg" alt="デザート"></figure>
-<h4>デザート　400円</h4>
-<p>「おすすめ」マークはhtml内に画像として配置し、class=&quot;icon&quot;と指定すればこの場所に表示されます。他に好きなアイコンを作ってclass指定してもOK。</p>
-<img src="images/icon_osusume.png" alt="おすすめ" class="icon">
-</div>
-
-<div class="list right">
-<figure><img src="images/sample_photo5.jpg" alt="デザート"></figure>
-<h4>デザート　400円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-<img src="images/icon_ninki.png" alt="人気" class="icon">
-</div>
-
-<div class="list right">
-<figure><img src="images/sample_photo5.jpg" alt="デザート"></figure>
-<h4>デザート　400円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-</div>
-
-<p class="pagetop"><a href="#">↑ PAGE TOP</a></p>
-
-<h3 id="desert">デザートメニュー（divタグでなく、中の画像だけに指定してもOKです。）</h3>
-
-<div class="list">
-<figure class="transform2"><img src="images/sample_photo5.jpg" alt="デザート"></figure>
-<h4>デザート　400円</h4>
-<p>「おすすめ」マークはhtml内に画像として配置し、class=&quot;icon&quot;と指定すればこの場所に表示されます。他に好きなアイコンを作ってclass指定してもOK。</p>
-<img src="images/icon_osusume.png" alt="おすすめ" class="icon">
-</div>
-
-<div class="list">
-<figure class="transform2"><img src="images/sample_photo5.jpg" alt="デザート"></figure>
-<h4>デザート　400円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-<img src="images/icon_ninki.png" alt="人気" class="icon">
-</div>
-
-<div class="list">
-<figure class="transform2"><img src="images/sample_photo5.jpg" alt="デザート"></figure>
-<h4>デザート　400円</h4>
-<p>ボックスのサイズや色などはcssフォルダのcssファイルで変更できます。</p>
-</div>
-
-</section>
-
-</div>
-<!--/main-->

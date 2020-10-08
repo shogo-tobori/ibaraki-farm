@@ -5,6 +5,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text :explanation, null:false
       t.text :shipping_time, null:false
       t.string :image_id, null:false
+      t.integer :genre_id, null:false
 
       t.timestamps
     end

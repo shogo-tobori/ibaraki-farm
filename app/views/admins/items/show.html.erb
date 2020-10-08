@@ -23,6 +23,10 @@
 					<td><%= @item.shipping_time %></td>
 				</tr>
 				<tr>
+          <td>ジャンル</td>
+          <td><%= @item.genre.name %></td>
+        </tr>
+				<tr>
 					<td>販売ステータス</td>
 					<td><% if @item.sale_status == true %>
 						<P> 販売中 </P>

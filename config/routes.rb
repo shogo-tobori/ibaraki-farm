@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 	scope module: :customers do
 		root 'homes#top'
-		get 'about' => 'homes#about'
+		get 'access' => 'homes#access'
 	end
 
 	namespace :customers do
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 		get 'top' => 'homes#top'
 		get 'about' => 'homes#about'
 		resources :items
+		resources :genres, only: [:index, :create, :edit, :update]
 	end
 # 〜〜〜〜〜〜〜〜〜〜〜
 end
