@@ -1,0 +1,53 @@
+  <div class="row">
+    <div class="col-md-7 col-lg-offset-1">
+      <h2><%= @customer.first_name %><%= @customer.last_name %>さんの詳細</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9 col-md-offset-1 ">
+      <table class="table text-nowrap">
+        <tbody>
+          <tr>
+            <td width="170">顧客ID</td>
+            <td>
+              <%= @customer.id %>
+              <button type="button", style="background:blue; color:white; border: none; font-size: 10pt;"><%= @customer.is_deleted %>会員</button>
+            </td>
+          </tr>
+          <tr>
+            <td width="170">氏名</td>
+            <td><%= @customer.first_name %> <%= @customer.last_name %></td>
+          </tr>
+          <tr>
+            <td width="170">フリナガ</td>
+            <td><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
+          </tr>
+          <tr>
+            <td width="170">郵便番号</td>
+            <td><%= @customer.postal_code %></td>
+          </tr>
+          <tr>
+            <td width="170">住所</td>
+            <td><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <td width="170">電話番号</td>
+            <td><%= @customer.phone %></td>
+          </tr>
+          <tr>
+            <td width="170">メールアドレス</td>
+            <td><%= @customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+    <div class="text-left">
+      <div class="col-md-2">
+        <%= link_to "編集する", edit_admins_customer_path(@customer), class: "btn btn-primary" %>
+      </div>
+      <div>
+        <div class="col-md-2">
+        <%= link_to "トップに戻る", admins_top_path(@customer), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  </div>
