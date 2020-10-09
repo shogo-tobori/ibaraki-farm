@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 		resources :items do
     resources :post_comments, only: [:create, :destroy]
   	end
+  	resources :events
   	post 'likes/:item_id/create' => 'likes#create', as: 'item_likes'
   	post 'likes/:item_id/destroy' => 'likes#destroy', as: 'item_like'
   end
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
 		get 'about' => 'homes#about'
 		resources :items
 		resources :genres, only: [:index, :create, :edit, :update]
+		resources :events
 	end
 # 〜〜〜〜〜〜〜〜〜〜〜
 end

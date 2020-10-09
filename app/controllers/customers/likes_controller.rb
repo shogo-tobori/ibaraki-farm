@@ -1,4 +1,5 @@
 class Customers::LikesController < ApplicationController
+  before_action :authenticate_customer!
 
   def create
     @like = Like.new(customer_id: current_customer.id, item_id: params[:item_id])
