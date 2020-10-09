@@ -30,7 +30,7 @@
             <li><%= link_to "マイページ", customers_informations_path, class:"glyphicon glyphicon-home" %></li>
             <li><%= link_to "商品一覧", customers_items_path, class:"glyphicon glyphicon-cutlery" %></li>
             <li><%= link_to "イベント", customers_events_path, class:"glyphicon glyphicon-shopping-cart" %></li>
-            <li><%= link_to "アクセス", access_path, class:"glyphicon glyphicon-shopping-cart" %></li>
+            <li><%= link_to "アクセス", customers_access_path, class:"glyphicon glyphicon-shopping-cart" %></li>
             <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete,class:"glyphicon glyphicon-log-out" %></li>
           <% elsif admin_signed_in? %>
             <li><%= link_to "商品登録", admins_items_path %></li>

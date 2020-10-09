@@ -1,30 +1,30 @@
 Rails.application.routes.draw do
-# customersコントローラー
+# 〜〜〜customersコントローラー〜〜〜
 	devise_for :customers, controllers: {
 		sessions: 'customers/sessions',
 		passwords: 'customers/passwords',
 		registrations: 'customers/registrations'
 	}
-
+  # ルートパス設定のため、URLのみ変更なし
 	scope module: :customers do
 		root 'homes#top'
-		get 'access' => 'homes#access'
 	end
 
 	namespace :customers do
-		resources :items do
-    resources :post_comments, only: [:create, :destroy]
+		resources :items, only: [:index, :show] do
+      resources :post_comments, only: [:create, :destroy]
   	end
-  	resources :events
-    resource :informations
+  	resources :events, only: [:index, :show]
+    resource :informations, only: [:show, :edit, :updata]
+    get 'access' => 'homes#access'
     get 'informations/withdraw' => 'informations#withdraw'
     patch 'informations/out' => 'informations#out'
   	post 'likes/:item_id/create' => 'likes#create', as: 'item_likes'
   	post 'likes/:item_id/destroy' => 'likes#destroy', as: 'item_like'
   end
-# 〜〜〜〜〜〜〜〜〜〜〜〜〜
+# 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 
-# adminsコントローラー
+# 〜〜〜adminsコントローラー〜〜〜
 	devise_for :admins, controllers: {
 		sessions: 'admins/sessions',
 		passwords: 'admins/passwors',
@@ -34,10 +34,10 @@ Rails.application.routes.draw do
 	namespace :admins do
 		get 'top' => 'homes#top'
 		get 'about' => 'homes#about'
-		resources :items
+		resources :items, expect: [:destroy]
 		resources :genres, only: [:index, :create, :edit, :update]
-		resources :events
-    resources :customers
+		resources :events, expext: [:destroy]
+    resources :customers, only: [:index, :show, :edit, :update]
 	end
-# 〜〜〜〜〜〜〜〜〜〜〜
+# 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 end
