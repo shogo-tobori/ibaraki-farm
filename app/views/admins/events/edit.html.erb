@@ -4,6 +4,7 @@
     </div>
 
   <%= form_for(@event, url: admins_event_path) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
     <div class="col-md-12">
             <div class="col-md-8">
                 <div class="row">

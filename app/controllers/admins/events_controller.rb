@@ -7,8 +7,12 @@ class Admins::EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.save
-    redirect_to admins_events_path
+    if @event.save
+      flash[:notice] = "新たに商品が追加されました"
+      redirect_to admins_events_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -25,8 +29,12 @@ class Admins::EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    @event.update(event_params)
-    redirect_to admins_events_path
+    if @event.update(event_params)
+      flash[:notice] = "新たに商品が追加されました"
+      redirect_to admins_events_path
+    else
+      render :edit
+    end
   end
 
  private

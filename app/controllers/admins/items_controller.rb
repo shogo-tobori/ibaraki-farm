@@ -9,8 +9,12 @@ class Admins::ItemsController < ApplicationController
   def create
     @genres = Genre.all
     @item = Item.new(item_params)
-    @item.save
-    redirect_to admins_items_path
+    if @item.save
+      flash[:notice] = "新たに商品が追加されました"
+      redirect_to admins_items_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -28,8 +32,13 @@ class Admins::ItemsController < ApplicationController
 
   def update
   	@item = Item.find(params[:id])
-  	@item.update(item_params)
-  	redirect_to admins_items_path
+    @genres = Genre.all
+  	if @item.update(item_params)
+      flash[:notice] = "商品情報を更新しました"
+      redirect_to admins_items_path
+    else
+      render :edit
+    end
   end
 
  private

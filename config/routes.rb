@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
   	end
   	resources :events, only: [:index, :show]
-    resource :informations, only: [:show, :edit, :updata]
+    resource :informations, only: [:show, :edit, :update]
     get 'access' => 'homes#access'
     get 'informations/withdraw' => 'informations#withdraw'
     patch 'informations/out' => 'informations#out'

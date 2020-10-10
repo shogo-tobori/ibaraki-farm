@@ -4,6 +4,7 @@
   </div>
 </div>
   <%= form_for(@customer, url: admins_customer_path(@customer)) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
     <div class="row">
       <div class="col-md-7 col-md-offset-1">
         <div class="form-group row">

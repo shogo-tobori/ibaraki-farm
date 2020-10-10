@@ -11,8 +11,12 @@ class Customers::InformationsController < ApplicationController
 
   def update
     @customer = current_customer
-    @customer.update(customer_params)
-    redirect_to customers_informations_path
+    if @customer.update(customer_params)
+      flash[:notice] = "会員情報を更新しました"
+      redirect_to customers_informations_path
+    else
+      render :edit
+    end
   end
 
   def withdraw
