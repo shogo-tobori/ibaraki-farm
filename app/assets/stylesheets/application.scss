@@ -15,6 +15,7 @@
  */
   @import "bootstrap-sprockets";
   @import "bootstrap";
+  @chaeset "UTF-8";
 
 * {
     padding: 0;
@@ -25,38 +26,49 @@
 html, body {
   height: 100%;
 }
+
 body {
-  background-image: url(haikei1.jpg);
   background-size: cover;
   background-position: center;
+  background-color: brown;
+  font-family: arial unicode ms;
+  color: white;
 }
+
 .wrapper {
   width: 100%;
   position: relative;
   min-height: 100%;
 }
+
 #main_wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
 header {
   position: relative;
 }
+
 .login_name {
-  color: white;
+  color: grey;
   line-height: 50px;
   position: absolute;
   right: 10px;
 }
+
 main {
-background: rgba(255,255,255,0.8);
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
+
 footer {
   height: 50px;
-  background-color: black;
+  background-color: white;
   margin-top: auto;
+  text-align: center;
+  padding-top: 15px;
+  color: grey;
 }
 
 /*ページネーション自体のデザイン*/
@@ -76,6 +88,11 @@ footer {
   border-radius: 15px;    /*角を丸くする*/
 }
 
+/*スライドのデザイン*/
+#container{
+  height: 300px;
+}
+
 .image1 {
   background-image: url(image1.jpg);
 }
@@ -90,8 +107,4 @@ footer {
 }
 .image5 {
   background-image: url(image5.jpg);
-}
-
-#container{
-  height: 500px;
 }
