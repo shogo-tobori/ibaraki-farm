@@ -1,20 +1,10 @@
 <div class="row">
-  <div class="col-md-12">
-    <div class="col-md-10">
-      <h4><mark>マイページ</mark></h4>
-    </div>
+  <div class="col-md-8 col-md-offset-2">
+    <p class="text-center"><b><%= current_customer.first_name %>さんの登録情報！<b></p>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-2">
-    <p><b>登録情報<b></p>
-  </div>
-  <div class="col-md-4">
-    <%= link_to "編集する", edit_customers_informations_path, class: "btn btn-primary" %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
+  <div class="col-md-8 col-md-offset-2">
     <table class="table table-bordered">
       <tr>
         <td>氏名</td>
@@ -41,5 +31,7 @@
         <td><%= @customer.email %></td>
       </tr>
     </table>
+    <div class="col-md-8 col-md-offset-5">
+      <%= link_to "編集する", edit_customers_informations_path, class: "btn btn-primary" %>
   </div>
 </div>
