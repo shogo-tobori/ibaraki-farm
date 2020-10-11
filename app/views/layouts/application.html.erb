@@ -43,9 +43,12 @@
             <li><%= link_to "アクセス", customers_access_path %></li>
             <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>
           <% elsif admin_signed_in? %>
+            <li><%= link_to "トップ", admins_top_path %></li>
             <li><%= link_to "商品登録", admins_items_path %></li>
             <li><%= link_to "会員一覧", admins_customers_path %></li>
             <li><%= link_to "イベント登録", admins_events_path %></li>
+            <li><%= link_to "コメント", admins_post_comments_path %></li>
+            <li><%= link_to "いいね", admins_likes_path %></li>
             <li><%= link_to "ジャンル登録", admins_genres_path %></li>
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
           <% else %>

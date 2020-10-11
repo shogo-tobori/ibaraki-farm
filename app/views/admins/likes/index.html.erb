@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h4><mark>いいね</mark></h4>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1", style="font-size: 18px;">
+     <table class="table table-bordered" style="background: rgba(0,0,0,0.2);">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>会員名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @likes.each do |like| %>
+            </tr>
+              <td>
+                <%= like.item.name %>
+              </td>
+              <td>
+                <%= like.customer.first_name %><%= like.customer.last_name %>さん
+              </td>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="text-center">
+        <%= paginate @likes %>
+      </div>
+    </div>
+  </div>

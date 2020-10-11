@@ -38,6 +38,8 @@ Rails.application.routes.draw do
 		resources :genres, only: [:index, :create, :edit, :update]
 		resources :events, expext: [:destroy]
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :post_comments, only:[:index]
+    resources :likes, only:[:index]
 	end
 # 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 end

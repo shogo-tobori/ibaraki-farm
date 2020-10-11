@@ -7,6 +7,33 @@
 </div>
 <div class="row" style="margin-top: 70px;">
   <div class="col-md-3 col-md-offset-1">
-    <div class="today_orders" style="font-size: 25px;">
-</div>
+    <%= link_to admins_items_path, :style=>"color:white;" do %>
+      <h1>商品数 <span style="font-size: 20px;">(全<%= @items.count %>件)</span></h1>
+    <% end %>
+  </div>
+  <div class="col-md-3 col-md-offset-1">
+    <%= link_to admins_customers_path, :style=>"color:white;" do %>
+      <h1>会員数 <span style="font-size: 20px;">(全<%= @customers.count %>件)</span></h1>
+    <% end %>
+  </div>
+  <div class="col-md-3 col-md-offset-1">
+    <%= link_to admins_events_path, :style=>"color:white;" do %>
+      <h1>イベント数 <span style="font-size: 20px;">(全<%= @events.count %>件)</span></h1>
+    <% end %>
+  </div>
+  <div class="col-md-3 col-md-offset-1">
+    <%= link_to admins_genres_path, :style=>"color:white;" do %>
+      <h1>ジャンル数 <span style="font-size: 20px;">(全<%= @genres.count %>件)</span></h1>
+    <% end %>
+  </div>
+  <div class="col-md-3 col-md-offset-1">
+    <%= link_to admins_post_comments_path, :style=>"color:white;" do %>
+      <h1>コメント数 <span style="font-size: 20px;">(全<%= @comments.count %>件)</span></h1>
+    <% end %>
+  </div>
+  <div class="col-md-3 col-md-offset-1">
+    <%= link_to admins_likes_path, :style=>"color:white;" do %>
+      <h1>いいね数 <span style="font-size: 20px;">(全<%= @likes.count %>件)</span></h1>
+    <% end %>
+  </div>
 </div>
