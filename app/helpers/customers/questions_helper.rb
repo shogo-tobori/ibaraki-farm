@@ -1,0 +1,2 @@
+module Customers::QuestionsHelper
+end

@@ -41,6 +41,7 @@
             <li><%= link_to "商品一覧", customers_items_path %></li>
             <li><%= link_to "イベント", customers_events_path %></li>
             <li><%= link_to "アクセス", customers_access_path %></li>
+            <li><%= link_to "お問い合わせ", customers_questions_index_path %></li>
             <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>
           <% elsif admin_signed_in? %>
             <li><%= link_to "トップ", admins_top_path %></li>
