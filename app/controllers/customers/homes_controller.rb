@@ -1,6 +1,6 @@
 class Customers::HomesController < ApplicationController
   def top
-    @random = Item.order("RANDOM()").limit(4)
+    @all_ranks = Item.find(Like.group(:item_id).order('count(item_id) desc').limit(3).pluck(:item_id))
   end
 
   def about
