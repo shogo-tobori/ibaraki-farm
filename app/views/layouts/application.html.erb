@@ -32,9 +32,9 @@
         <div class="genre-title"><%= image_tag 'logo.png', size: '200x200' %></div>
       </div>
       <header class="navbar navbar-default navbar-fixed-top">
-        <div class="col-md-offset-1 col-md-3">
+        <div class="col-md-offset-1 col-md-2">
         </div>
-        <ul class="nav navbar-nav col-md-6">
+        <ul class="nav navbar-nav ">
           <% if customer_signed_in? %>
             <li><%= link_to "トップ", root_path %></li>
             <li><%= link_to "マイページ", customers_informations_path %></li>
