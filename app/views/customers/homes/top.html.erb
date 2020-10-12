@@ -4,10 +4,11 @@
       <div class="top-visual">
         <div class="top-visual-content">
           <div class="top-visual-text">
-            <h1>ようこそ、茨城農場へ！</h1><br>
-            <h4>このサイトは、ケーキ販売のECサイトになります。</h4><br>
-            <h4>会員でない方も商品の閲覧はできますが、</h4><br>
-            <h4>購入には会員登録が必要になります。</h4>
+            <h1>茨城農場へようこそ！</h1><br>
+            <h4>このサイトでは、茨城農場の商品の閲覧や農場のイベントを見る事ができます。</h4><br>
+            <h4>商品を見て、気になった方は「お問い合わせ」からご連絡お願いいたします！</h4><br>
+            <h4>また閲覧にはログインが必要なため<%= link_to "こちら",new_customer_registration_path, :style=> "color:red;" %>から新規登録をお願いします。</h4><br>
+            <h4>新規登録がお済みの方は<%= link_to "こちら",new_customer_session_path, :style=> "color:red;" %></h4>
           </div>
         </div>
       </div>
@@ -22,13 +23,13 @@
         <% @all_ranks.each.with_index(1) do |item, i| %>
           <div class="col-md-3">
             第<%= i %>位
-            <%= link_to customers_item_path(item), :style=>"color:white;" do %>
+            <%= link_to customers_item_path(item), :style=>"color:red;" do %>
               <%= attachment_image_tag item, :image, format: 'jpeg', size:"170x140" %>
               <p><%= item.name %></p>
             <% end %>
           </div>
         <% end %>
-        <p class="text-right"><%= link_to "もっと見る >", customers_items_path, :style=>"color:white;" %></p>
+        <p class="text-right"><%= link_to "もっと見る >", customers_items_path, :style=>"color:red;" %></p>
       </div>
     </div>
   </div>

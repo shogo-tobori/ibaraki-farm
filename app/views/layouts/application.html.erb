@@ -2,7 +2,7 @@
   <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1　">
     <meta name="description" content="架空の農場をモデルにしたHPページです。HPを持っていない事業者の方に使って頂きたいです。">
     <meta name="keywords" content="農場,農園,農家,農業,HP",農業体験,商品紹介,野菜,茨城>
     <title>茨城農場</title>
@@ -15,6 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
 
   </head>
 
@@ -30,34 +31,38 @@
     </div>
      <div class="row">
       <div class="col-md-offset-1 col-md-3">
-        <div class="genre-title"><%= image_tag 'logo.png', size: '200x200' %></div>
+        <div class="genre-title">
+          <%= link_to root_path do %>
+          <%= image_tag 'logo.png', size: '200x200' %>
+          <% end %>
+        </div>
       </div>
       <header class="navbar navbar-default navbar-fixed-top">
         <div class="col-md-offset-1 col-md-2">
         </div>
         <ul class="nav navbar-nav ">
           <% if customer_signed_in? %>
-            <li><%= link_to "トップ", root_path %></li>
-            <li><%= link_to "マイページ", customers_informations_path %></li>
-            <li><%= link_to "商品一覧", customers_items_path %></li>
-            <li><%= link_to "イベント", customers_events_path %></li>
-            <li><%= link_to "アクセス", customers_access_path %></li>
-            <li><%= link_to "お問い合わせ", customers_questions_index_path %></li>
-            <li><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>
+            <li class="shake-little"><%= link_to "about", customers_homes_about_path %></li>
+            <li class="shake-little"><%= link_to "マイページ", customers_informations_path %></li>
+            <li class="shake-little"><%= link_to "商品一覧", customers_items_path %></li>
+            <li class="shake-little"><%= link_to "イベント", customers_events_path %></li>
+            <li class="shake-little"><%= link_to "アクセス", customers_homes_access_path %></li>
+            <li class="shake-little"><%= link_to "お問い合わせ", customers_questions_index_path %></li>
+            <li class="shake-little"><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>
           <% elsif admin_signed_in? %>
-            <li><%= link_to "トップ", admins_top_path %></li>
-            <li><%= link_to "商品登録", admins_items_path %></li>
-            <li><%= link_to "会員一覧", admins_customers_path %></li>
-            <li><%= link_to "イベント登録", admins_events_path %></li>
-            <li><%= link_to "コメント", admins_post_comments_path %></li>
-            <li><%= link_to "いいね", admins_likes_path %></li>
-            <li><%= link_to "ジャンル登録", admins_genres_path %></li>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li class="shake-little"><%= link_to "トップ", admins_top_path %></li>
+            <li class="shake-little"><%= link_to "商品登録", admins_items_path %></li>
+            <li class="shake-little"><%= link_to "会員一覧", admins_customers_path %></li>
+            <li class="shake-little"><%= link_to "イベント登録", admins_events_path %></li>
+            <li class="shake-little"><%= link_to "コメント", admins_post_comments_path %></li>
+            <li class="shake-little"><%= link_to "いいね", admins_likes_path %></li>
+            <li class="shake-little"><%= link_to "ジャンル登録", admins_genres_path %></li>
+            <li class="shake-little"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to " トップ", root_path %></li>
-            <li><%= link_to " 商品一覧", customers_items_path %></li>
-            <li><%= link_to " 新規登録", new_customer_registration_path %></li>
-            <li><%= link_to " ログイン", new_customer_session_path %></li>
+            <li class="shake-little"><%= link_to " トップ", root_path %></li>
+            <li class="shake-little"><%= link_to " 商品一覧", customers_items_path %></li>
+            <li class="shake-little"><%= link_to " 新規登録", new_customer_registration_path %></li>
+            <li class="shake-little"><%= link_to " ログイン", new_customer_session_path %></li>
           <% end %>
         </ul>
         <% if customer_signed_in? %>
