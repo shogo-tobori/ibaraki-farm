@@ -1,46 +1,47 @@
-<div class="">
-  <section>
-    <h2>会社情報</h2>
-      <table class="ta1">
-      <tr>
-        <th>店名</th>
-        <td>茨城農場</td>
-      </tr>
-      <tr>
-        <th>所在地</th>
-        <td>茨城県守谷市</td>
-      </tr>
-      <tr>
-        <th>TEL</th>
-        <td>00000000000</td>
-      </tr>
-      <tr>
-        <th>駐車場</th>
-        <td>５台可</td>
-      </tr>
-      <tr>
-    </table>
-  </section>
-</div>
+<div class="row text-center">
+  <div class="col-md-9 col-md-offset-1">
+    <section>
+      <h2>会社情報</h2>
+        <table class="ta1">
+        <tr>
+          <th>店名</th>
+          <td>茨城農場</td>
+        </tr>
+        <tr>
+          <th>所在地</th>
+          <td>茨城県守谷市</td>
+        </tr>
+        <tr>
+          <th>TEL</th>
+          <td>00000000000</td>
+        </tr>
+        <tr>
+          <th>駐車場</th>
+          <td>５台可</td>
+        </tr>
+        <tr>
+      </table>
+    </section>
+  </div>
 
-<h2>アクセス</h2>
-<div id='map'></div>
+  <h2>アクセス</h2>
+  <div id='map'></div>
 
-<style>
-#map{
-  height: 400px;
-  width: 800px;
-}
-</style>
+  <style>
+  #map{
+    height: 400px;
+    width: 800px;
+  }
+  </style>
 
-<script>
-function initMap(){
-  let map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: 35.950867, lng: 139.992306},
-  zoom: 15
-  });
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjivLKhV-WNb_r_8YaeT_HpLrw0TxSD2I&callback=initMap" async defer></script>
+  <script>
+  function initMap(){
+    let map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 35.950867, lng: 139.992306},
+    zoom: 15
+    });
+  }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjivLKhV-WNb_r_8YaeT_HpLrw0TxSD2I&callback=initMap" async defer></script>
 
-<!--/main-->
+  <!--/main-->
