@@ -17,6 +17,21 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+$(document).on('turbolinks:load', function() {
+  $(function(){
+    // inputのidから情報の取得
+    $('#item_image').on('change', function (e) {
+    // ここから既存の画像のurlの取得
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $(".image").attr('src', e.target.result);
+    }
+    // ここまで
+    reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+    });
+  });
+});
+
 document.addEventListener("turbolinks:load", function() {
   $("#theTarget").skippr({
     // スライドショーの変化 ("fade" or "slide")

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-11 col-md-offset-1">
-    <h4>ログイン</h4>
+    <h3>ログイン</h3>
   </div>
 </div>
 <br>
@@ -36,7 +36,7 @@
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <h4>登録がお済みでない方</h4>
+    <h4>登録がお済みでない方へ</h4>
   </div>
 </div>
 <br>
@@ -45,6 +45,16 @@
     <p>
       <%= link_to "こちら", new_customer_registration_path, :style=>"color:red;"  %> から新規登録を行ってください。
     </p>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h4>管理者画面</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
     <p>
       管理者の方は<%= link_to "こちら", new_admin_session_path, :style=>"color:red;", data: {"turbolinks" => false} %>
     </p>
