@@ -1,29 +1,28 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <h4><mark>イベント一覧</mark></h4>
-
-    <div class="text-right">
-      <%= link_to "＋", new_admins_event_path, class: "btn btn-default" %>
-    </div>
-
+    <h3>イベント一覧</h3>
+    <div class="text-left">
+      <%= link_to "イベントのご登録はこちら", new_admins_item_path, class: "btn btn-danger" %>
     </div>
   </div>
+</div>
+<br>
   <div class="row">
     <div class="col-md-10 col-md-offset-1", style="font-size: 18px;">
-      <table class="table table-bordered" style="background: rgba(0,0,0,0.2);">
+      <table class="table">
         <thead>
           <tr>
-            <th>イベント名</th>
-            <th>開始日</th>
-            <th>終了日</th>
-            <th>詳細</th>
+            <th class="text-center">イベント名</th>
+            <th class="text-center">開始日</th>
+            <th class="text-center">終了日</th>
+            <th class="text-center">詳細</th>
           </tr>
         </thead>
         <tbody>
           <% @events.each do |event| %>
           <tr>
             <td>
-              <%= link_to event.title, admins_event_path(event) %>
+              <%= link_to event.title, admins_event_path(event), :style=> "color:red;" %>
             </td>
             <td>
               <%= event.start %>

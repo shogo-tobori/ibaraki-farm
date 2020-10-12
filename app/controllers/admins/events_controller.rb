@@ -1,4 +1,5 @@
 class Admins::EventsController < ApplicationController
+
   before_action :authenticate_admin!
 
   def new
@@ -16,7 +17,7 @@ class Admins::EventsController < ApplicationController
   end
 
   def index
-    @events = Event.page(params[:page]).reverse_order
+    @events = Event.all.page(params[:page]).per(3)
   end
 
   def show

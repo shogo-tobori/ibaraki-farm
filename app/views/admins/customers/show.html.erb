@@ -1,10 +1,11 @@
   <div class="row">
-    <div class="col-md-7 col-lg-offset-1">
+    <div class="col-md-7 col-lg-offset-2">
       <h2><%= @customer.first_name %><%= @customer.last_name %>さんの詳細</h2>
     </div>
   </div>
+  <br>
   <div class="row">
-    <div class="col-md-9 col-md-offset-1 ">
+    <div class="col-md-6 col-md-offset-3">
       <table class="table text-nowrap">
         <tbody>
           <tr>
@@ -15,39 +16,40 @@
             </td>
           </tr>
           <tr>
-            <td width="170">氏名</td>
+            <td>氏名</td>
             <td><%= @customer.first_name %> <%= @customer.last_name %></td>
           </tr>
           <tr>
-            <td width="170">フリナガ</td>
+            <td>フリナガ</td>
             <td><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
           </tr>
           <tr>
-            <td width="170">郵便番号</td>
+            <td>郵便番号</td>
             <td><%= @customer.postal_code %></td>
           </tr>
           <tr>
-            <td width="170">住所</td>
+            <td>住所</td>
             <td><%= @customer.address %></td>
           </tr>
           <tr>
-            <td width="170">電話番号</td>
+            <td>電話番号</td>
             <td><%= @customer.phone %></td>
           </tr>
           <tr>
-            <td width="170">メールアドレス</td>
+            <td>メールアドレス</td>
             <td><%= @customer.email %></td>
           </tr>
         </tbody>
       </table>
-    <div class="text-left">
-      <div class="col-md-2">
-        <%= link_to "編集する", edit_admins_customer_path(@customer), class: "btn btn-primary" %>
+    <div class="text-center">
+      <div class="col-md-4 col-md-offset-1">
+        <%= link_to "編集する", edit_admins_customer_path(@customer), class: "btn btn-danger" %>
       </div>
       <div>
-        <div class="col-md-2">
-        <%= link_to "トップに戻る", admins_top_path(@customer), class: "btn btn-primary" %>
+        <div class="col-md-4 col-md-offset-1">
+        <%= link_to "トップに戻る", admins_top_path(@customer), class: "btn btn-danger" %>
+        </div>
       </div>
     </div>
   </div>
-  </div>
+</div>

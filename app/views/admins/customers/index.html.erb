@@ -1,17 +1,18 @@
 <div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <h4><mark>会員一覧</mark></h4>
-    </div>
+  <div class="col-md-10 col-md-offset-2">
+    <h3>会員一覧</h3>
   </div>
-  <div class="row" >
-    <div class="col-md-9 col-md-offset-1", style="font-size: 18px;">
-      <table class="table table-bordered" style="background: rgba(0,0,0,0.2);">
+</div>
+<br>
+  <div class="row">
+    <div class="col-md-9 col-md-offset-2", style="font-size: 18px;">
+      <table class="table">
         <thead>
           <tr>
-            <th>会員ID</th>
-            <th>氏名</th>
-            <th>メールアドレス</th>
-            <th>ステータス</th>
+            <th class="text-center">会員ID</th>
+            <th class="text-center">氏名</th>
+            <th class="text-center">メールアドレス</th>
+            <th class="text-center">ステータス</th>
           </tr>
         </thead>
         <tbody>
@@ -21,7 +22,7 @@
               <%= customer.id %>
             </td>
             <td>
-              <%= link_to admins_customer_path(customer.id) do %>
+              <%= link_to admins_customer_path(customer.id), :style=> "color:red;" do %>
               <%= customer.first_name %><%= customer.last_name %>
               <% end %>
             </td>

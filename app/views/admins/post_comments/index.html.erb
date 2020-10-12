@@ -1,38 +1,41 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <h4><mark>コメント</mark></h4>
+    <h3>コメント一覧</h3>
   </div>
 </div>
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1", style="font-size: 18px;">
-      <table class="table table-bordered" style="background: rgba(0,0,0,0.2);">
-        <thead>
-          <tr>
-            <th>商品名</th>
-            <th>会員名</th>
-            <th>コメント一覧</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @post_comments.each do |post_comment| %>
-          <tr>
-            <td>
-              <%= post_comment.item.name %>
-            </td>
-            <td>
-              <%= post_comment.customer.first_name %><%= post_comment.customer.last_name %>さん
-            </td>
-            <td>
-              <%= post_comment.comment %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="text-center">
-          <%= paginate @post_comments %>
-        </div>
-        </div>
+<br>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1", style="font-size: 18px;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center">商品名</th>
+          <th class="text-center">会員名</th>
+          <th class="text-center">コメント一覧</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @post_comments.each do |post_comment| %>
+        <tr>
+          <td>
+            <%= post_comment.item.name %>
+          </td>
+          <td>
+            <%= link_to admins_customer_path(post_comment.customer), :style=> "color:red;" do %>
+            <%= post_comment.customer.first_name %><%= post_comment.customer.last_name %>さん
+            <% end %>
+          </td>
+          <td>
+            <%= post_comment.comment %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="text-center">
+        <%= paginate @post_comments %>
       </div>
+      </div>
+    </div>

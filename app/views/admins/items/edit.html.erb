@@ -1,62 +1,71 @@
 <div class="row">
-    <div class="col-md-11 col-md-offset-1">
-        <h4><mark>商品編集</mark></h4>
-    </div>
+  <div class="col-md-11 col-md-offset-1">
+    <h3>商品編集</h3>
+  </div>
 
   <%= form_for(@item, url: admins_item_path) do |f| %>
+    <!-- エラーメッセージ -->
     <%= render 'layouts/error_messages', model: f.object %>
-        <div class="col-md-12">
-            <div class="col-md-3 col-md-offset-1">
-                <div class="row">
-                    <div id="item-image">
-                        <%= attachment_image_tag @item, :image, format: 'jpeg', size:"300x260", fallback: "no_image.png" %>
-                    </div>
-                        <%= f.attachment_field :image, class: "col-md-12" %>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">商品名</label>
-                        <div class="col-md-6">
-                        <%= f.text_field :name, class: "form-control"%>
-                    </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">商品説明</label>
-                        <div class="col-md-6">
-                        <%= f.text_area :explanation, class: "form-control", rows: "4" %>
-                    </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">出荷時期</label>
-                        <div class="col-md-6">
-                            <%= f.text_area :shipping_time, class: "form-control", rows: "4" %>
-                    </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">ジャンル</label>
-                        <div class="col-md-6">
-                        <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "-- 選択してください --"}, {class: "form-control"}) %>
-                    </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">販売ステータス</label>
-                        <div class="col-md-3">
-                        <%= f.select :sale_status, [['販売中', true], ['売り切れ', false]], {prompt: "-- 選択してください --"}, {class: "form-control"}%>
-                    </div>
-                    </div>
-                </div>
+    <div class="col-md-12">
+      <div class="col-md-3 col-md-offset-1">
         <div class="row">
-            <%= f.submit "変更を保存", class: "btn btn-primary col-md-offset-9" %>
+          <div id="item-image">
+            <%= attachment_image_tag @item, :image, format: 'jpeg', size:"300x260", fallback: "no_image.png" %>
+          </div>
+          <br>
+            <%= f.attachment_field :image, class: "col-md-12" %>
         </div>
-    <% end %>
+      </div>
+      <div class="col-md-8">
+        <div class="row text-center">
+          <div class="form-group">
+            <label class="col-md-3 control-label">商品名</label>
+            <div class="col-md-6">
+              <%= f.text_field :name, class: "form-control"%>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row text-center">
+          <div class="form-group">
+            <label class="col-md-3 control-label">商品説明</label>
+            <div class="col-md-6">
+              <%= f.text_area :explanation, class: "form-control", rows: "4" %>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row text-center">
+          <div class="form-group">
+            <label class="col-md-3 control-label">出荷時期</label>
+            <div class="col-md-6">
+              <%= f.text_field :shipping_time, class: "form-control", rows: "4" %>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row text-center">
+          <div class="form-group">
+            <label class="col-md-3 control-label">ジャンル</label>
+            <div class="col-md-6">
+              <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "-- 選択してください --"}, {class: "form-control"}) %>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row text-center">
+          <div class="form-group">
+            <label class="col-md-3 control-label">販売ステータス</label>
+            <div class="col-md-3">
+              <%= f.select :sale_status, [['販売中', true], ['売り切れ', false]], {prompt: "-- 選択してください --"}, {class: "form-control"}%>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+            <%= f.submit "変更を保存", class: "btn btn-danger col-md-offset-7" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
