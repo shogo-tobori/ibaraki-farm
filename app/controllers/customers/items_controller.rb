@@ -1,5 +1,7 @@
 class Customers::ItemsController < ApplicationController
 
+  before_action :authenticate_customer!
+
   def index
     @items = Item.all.page(params[:page]).per(3)
   end
