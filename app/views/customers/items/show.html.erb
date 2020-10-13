@@ -68,7 +68,7 @@
       <tbody>
         <% @post_comments.each do |post_comment| %>
           <tr>
-            <td><%= post_comment.customer.last_name %></td>
+            <td><%= post_comment.customer.first_name %><%= post_comment.customer.last_name %>さん</td>
             <td><%= post_comment.comment %></td>
             <td>
               <%= link_to customers_item_post_comment_path(@item, post_comment), :style=> "color:white;", method: :delete do %>
