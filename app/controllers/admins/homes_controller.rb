@@ -1,6 +1,6 @@
 class Admins::HomesController < ApplicationController
 
-  before_action :authenticate_admin!
+  before_action :authenticate_admin!, except:[:about]
 
   def top
     @items = Item.all
@@ -9,6 +9,9 @@ class Admins::HomesController < ApplicationController
     @genres = Genre.all
     @post_comments = PostComment.all
     @likes = Like.all
+  end
+
+  def about
   end
 
 end

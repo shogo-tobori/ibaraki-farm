@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   	resources :events, only: [:index, :show]
     resource :informations, only: [:show, :edit, :update]
     get 'homes/access' => 'homes#access'
-    get 'homes/about' => 'homes#about'
     get 'informations/withdraw' => 'informations#withdraw'
     patch 'informations/out' => 'informations#out'
   	post 'likes/:item_id/create' => 'likes#create', as: 'item_likes'

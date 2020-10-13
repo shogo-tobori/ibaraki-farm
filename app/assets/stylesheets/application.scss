@@ -100,6 +100,14 @@ footer {
   color: grey;
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+.flex > div{
+  flex-basis: 100px;
+}
+
 /*スライドのデザイン*/
 
 #container{
