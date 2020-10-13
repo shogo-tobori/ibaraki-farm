@@ -7,7 +7,7 @@
 <br>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-  <%= form_for @question, :url => customers_questions_confirm_path do |f| %>
+    <%= form_for @question, :url => customers_questions_confirm_path do |f| %>
       <h1 class="text-center">メールでのお問い合わせ</h1>
   </div>
 </div>
@@ -39,8 +39,8 @@
       </tr>
     </table>
     <div class="col-md-7 col-md-offset-5">
-      <%= f.submit '確認', class: 'btn btn-danger', data: {"turbolinks" => false} %>
+      <%= f.submit '確認', class: 'btn btn-danger' %>
     </div>
-    <% end %>
   </div>
 </div>
+<% end %>

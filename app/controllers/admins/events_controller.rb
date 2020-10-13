@@ -31,7 +31,7 @@ class Admins::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
-      flash[:notice] = "新たに商品が追加されました"
+      flash[:notice] = "商品が更新されました"
       redirect_to admins_events_path
     else
       render :edit

@@ -2,7 +2,7 @@
   <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1　">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="架空の農場をモデルにしたHPページです。HPを持っていない事業者の方に使って頂きたいです。">
     <meta name="keywords" content="農場,農園,農家,農業,HP",農業体験,商品紹介,野菜,茨城>
     <title>茨城農場</title>
@@ -43,7 +43,7 @@
             <li class="shake-little"><%= link_to "マイページ", customers_informations_path %></li>
             <li class="shake-little"><%= link_to "イベント", customers_events_path %></li>
             <li class="shake-little"><%= link_to "アクセス", customers_homes_access_path %></li>
-            <li class="shake-little"><%= link_to "お問い合わせ", customers_questions_index_path %></li>
+            <li class="shake-little"><%= link_to "お問い合わせ", customers_questions_index_path, data: {"turbolinks" => false} %></li>
             <li class="shake-little"><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>
           <% elsif admin_signed_in? %>
             <li class="shake-little"><%= link_to "トップ", admins_top_path %></li>
