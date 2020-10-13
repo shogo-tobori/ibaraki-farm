@@ -1,14 +1,14 @@
 <div class="row text-center">
   <div class="col-md-9 col-md-offset-1">
-    <h1>イベントご紹介 <span style="font-size: 20px;">(全<%= @events.count %>件)</span></h1>
+    <h1>イベントご紹介 <span style="font-size: 20px;"><%= @events.count %>件</span></h1>
     <div class="row">
       <% @events.each do |event| %>
-        <div class="col-md-6">
-            <%= link_to customers_event_path(event), :style=>"color:white;" do %>
-              <p>イベント名<br>
-                <%= event.title %><br>
-              ~~~詳細はこちらをクリック~~~</p>
-            <% end %>
+        <div class="col-md-4">
+          <%= link_to customers_event_path(event), :style=>"color:white;" do %>
+              <h4>イベント名<br><br>
+                <%= event.title %><br><br>
+              ↑詳細はこちらをクリック↑</h4>
+          <% end %>
             <p>開催日<%= event.start %></p>
             <p>終了日<%= event.end %></p>
             <p>イベント詳細<br>

@@ -3,36 +3,44 @@
     <h1 class="text-center">電話でのお問い合わせ</h1>
     <h2 class="text-center">xxx-xxxx-xxxx</h2>
   </div>
-
-<%= form_for @question, :url => customers_questions_confirm_path do |f| %>
-  <div class="page-header">
-    <h1>メールでのお問い合わせ</h1>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  <%= form_for @question, :url => customers_questions_confirm_path do |f| %>
+      <h1 class="text-center">メールでのお問い合わせ</h1>
   </div>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <% if @question.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <strong>入力内容にエラーがあります</strong>
+        <ul>
+          <% @question.errors.each do |attr, msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <% if @question.errors.any? %>
-    <div class="alert alert-danger" role="alert">
-      <strong>入力内容にエラーがあります</strong>
-      <ul>
-        <% @question.errors.each do |attr, msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+    <table class="table">
+      <tr>
+        <th>名前<span class="text-danger">（必須）</span></th>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス<span class="text-danger">（必須）</span></th>
+        <td><%= f.text_field :email %></td>
+      </tr>
+      <tr>
+        <th>お問い合わせ内容</th>
+        <td><%= f.text_area :message %></td>
+      </tr>
+    </table>
+    <div class="col-md-7 col-md-offset-5">
+      <%= f.submit '確認', class: 'btn btn-danger' %>
     </div>
-  <% end %>
-
-  <table class="table">
-    <tr>
-      <th>名前<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_field :name %></td>
-    </tr>
-    <tr>
-      <th>メールアドレス<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_field :email %></td>
-    </tr>
-    <tr>
-      <th>お問い合わせ内容</th>
-      <td><%= f.text_area :message %></td>
-    </tr>
-  </table>
-  <%= f.submit '確認', class: 'btn btn-danger' %>
-<% end %>
+    <% end %>
+  </div>
+</div>

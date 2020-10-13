@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+// プレビュー
 $(document).on('turbolinks:load', function() {
   $(function(){
     // inputのidから情報の取得
@@ -32,6 +33,7 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+// スライドショー
 document.addEventListener("turbolinks:load", function() {
   $("#theTarget").skippr({
     // スライドショーの変化 ("fade" or "slide")

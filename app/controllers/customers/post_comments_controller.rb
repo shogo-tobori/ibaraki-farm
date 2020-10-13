@@ -1,4 +1,5 @@
 class Customers::PostCommentsController < ApplicationController
+
   before_action :authenticate_customer!
 
   def create
