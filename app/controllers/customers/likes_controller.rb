@@ -5,7 +5,7 @@ class Customers::LikesController < ApplicationController
   def create
     @like = Like.new(customer_id: current_customer.id, item_id: params[:item_id])
     @like.save
-    flash[:notice] = "新たにジャンルが追加されました"
+    flash[:notice] = "いいねありがとうございます！"
     redirect_to("/customers/items/#{params[:item_id]}")
   end
 
