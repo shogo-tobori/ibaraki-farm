@@ -3,6 +3,7 @@ class QuestionMailer < ApplicationMailer
 
   def received_email(question)
     @question = question
-    mail(:to => question.email, :subject => 'お問い合わせを承りました')
+    # 送信先のメールアドレスを記述
+    mail(:to => "qb.brady.121212@gmail.com", :subject => 'お問い合わせを承りました')
   end
 end
