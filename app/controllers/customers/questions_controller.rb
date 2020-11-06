@@ -8,7 +8,7 @@ class Customers::QuestionsController < ApplicationController
 
   def confirm
     # 入力値のチェック
-    @question = Question.new(params[:question].permit(:name, :email, :message))
+    @question = Question.new(question_params)
     if @question.valid?
       # OK。確認画面を表示
       render :action => 'confirm'
@@ -20,10 +20,16 @@ class Customers::QuestionsController < ApplicationController
 
   def thanks
     # メール送信
-    @question = Question.new(params[:question].permit(:name, :email, :message))
+    @question = Question.new(question_params)
     QuestionMailer.received_email(@question).deliver
 
     # 完了画面を表示
     render :action => 'thanks'
   end
+
+  private
+  def question_params
+    params.require(:question).permit(:name, :email, :message)
+  end
+
 end
