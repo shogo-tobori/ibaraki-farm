@@ -9,7 +9,7 @@ class Admins::EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      flash[:notice] = "新たに商品が追加されました"
+      flash[:notice] = "新たにイベントが追加されました"
       redirect_to admins_events_path
     else
       render :new
