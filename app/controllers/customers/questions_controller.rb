@@ -1,9 +1,9 @@
 class Customers::QuestionsController < ApplicationController
 
-  def index
+  def new
     # 入力画面を表示
     @question = Question.new
-    render :action => 'index'
+    render :new
   end
 
   def confirm
@@ -11,10 +11,10 @@ class Customers::QuestionsController < ApplicationController
     @question = Question.new(question_params)
     if @question.valid?
       # OK。確認画面を表示
-      render :action => 'confirm'
+      render :confirm
     else
       # NG。入力画面を再表示
-      render :action => 'index'
+      render :new
     end
   end
 
@@ -24,7 +24,7 @@ class Customers::QuestionsController < ApplicationController
     QuestionMailer.received_email(@question).deliver
 
     # 完了画面を表示
-    render :action => 'thanks'
+    render :thanks
   end
 
   private

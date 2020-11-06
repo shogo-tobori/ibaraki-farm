@@ -43,7 +43,7 @@
             <li class="shake-little"><%= link_to "マイページ", customers_informations_path %></li>
             <li class="shake-little"><%= link_to "イベント", customers_events_path %></li>
             <li class="shake-little"><%= link_to "アクセス", customers_homes_access_path %></li>
-            <li class="shake-little"><%= link_to "お問い合わせ", customers_questions_index_path, data: {"turbolinks" => false} %></li>
+            <li class="shake-little"><%= link_to "お問い合わせ", customers_questions_new_path, data: {"turbolinks" => false} %></li>
             <li class="shake-little"><%= link_to " ログアウト", destroy_customer_session_path, method: :delete %></li>
           <% elsif admin_signed_in? %>
             <li class="shake-little"><%= link_to "トップ", admins_top_path %></li>

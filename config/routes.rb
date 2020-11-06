@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     patch 'informations/out' => 'informations#out'
   	post 'likes/:item_id/create' => 'likes#create', as: 'item_likes'
   	post 'likes/:item_id/destroy' => 'likes#destroy', as: 'item_like'
-    get   'questions/index'   => 'questions#index'     # 入力画面
+    get   'questions/new'   => 'questions#new'     # 入力画面
     post  'questions/confirm' => 'questions#confirm'   # 確認画面
     post  'questions/thanks'  => 'questions#thanks'    # 送信完了画面
   end
