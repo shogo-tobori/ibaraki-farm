@@ -13,17 +13,16 @@
 </div>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <% if @question.errors.any? %>
-      <div class="alert alert-danger" role="alert">
-        <strong>入力内容にエラーがあります</strong>
-        <ul>
-          <% @question.errors.each do |attr, msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
+      <% if @question.errors.any? %>
+        <div class="alert alert-danger">
+          <strong>入力内容にエラーがあります</strong>
+          <ul>
+            <% @question.errors.each do |attr, msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     <table class="table">
       <tr>
         <th>名前<span class="text-danger">（必須）</span></th>

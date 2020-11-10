@@ -2,6 +2,10 @@ ja:
   activerecord:
     models:
       customer: ユーザー情報
+      event: イベント情報
+      genre: ジャンル情報
+      item: 商品情報
+      post_comment: コメント情報
     attributes:
       customer:
         first_name: 名前(姓)
@@ -11,6 +15,24 @@ ja:
         postal_code: 郵便番号(ハイフンなし)
         address: 住所
         phone: 電話番号(ハイフンなし)
+      event:
+        title: イベント名
+        start: 開始日
+        end: 終了日
+        explanation: 詳細
+      genre:
+        name: ジャンル登録
+      item:
+        name: 商品名
+        explanation: 商品説明
+        shipping_time: 出荷時期
+        genre: ジャンル
+        image: 写真
+      post_comment:
+        comment: コメント
+      question:
+        name: 氏名
+        email: メールアドレス
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

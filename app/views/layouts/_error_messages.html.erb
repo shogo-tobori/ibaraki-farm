@@ -1,11 +1,12 @@
 <div class="col-md-4 col-md-offset-1">
   <% if model.errors.any? %>
     <div class="alert alert-danger">
-      <ul>
-        <% model.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+      <strong>入力内容にエラーがあります</strong>
+        <ul>
+          <% model.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
     </div>
   <% end %>
 </div>
