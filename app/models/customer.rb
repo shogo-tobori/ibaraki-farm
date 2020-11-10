@@ -14,6 +14,7 @@ class Customer < ApplicationRecord
   validates :postal_code, presence: true
   validates :address, presence: true
   validates :phone, presence: true
+  validates :password_confirmation, presence: true
 
   enum is_deleted: { 有効: false, 退会済み: true }
 
