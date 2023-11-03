@@ -74,7 +74,7 @@ end
 
 gem 'devise', '4.8.1'
 gem 'bcrypt', '~> 3.1.18'
-
+#
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
